@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Horizon | The Festival, the Game, the Destination</title>
+  <meta name="description" content="More than a tournament. The Horizon Football Festival at Cromer Park is a four-day weekend on Sydney's Northern Beaches — top football, then beaches, ferries and Manly." />
+  <meta name="theme-color" content="#14296b" />
+
+  <link rel="icon" type="image/png" href="images/horizon-logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Header / Nav -->
+  <header class="site-header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-3" aria-label="Horizon Football Festival home">
+          <img src="images/horizon-logo.png" alt="" class="h-10 md:h-12 w-auto" />
+          <div class="hidden sm:block leading-tight">
+            <div class="font-bold text-sm md:text-base" style="color: var(--hff-red); font-family: Montserrat, sans-serif; letter-spacing: 0.04em;">HORIZON</div>
+            <div class="font-semibold text-xs md:text-sm" style="color: var(--hff-navy); letter-spacing: 0.05em;">FOOTBALL FESTIVAL</div>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8" aria-label="Primary">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link active">About Horizon</a>
+          <a href="tournament.html" class="nav-link">Tournament Info</a>
+          <a href="register.html" class="nav-link">Register</a>
+          <a href="register.html" class="btn btn-primary" style="padding: 0.6rem 1.3rem; font-size: 0.88rem;">Register Now</a>
+        </nav>
+
+        <button id="menuToggle" class="md:hidden p-2 rounded-md" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="color: var(--hff-navy);">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu md:hidden border-t" style="border-color: var(--hff-border); background: #fff;">
+      <div class="px-4 py-3 flex flex-col gap-1">
+        <a href="index.html" class="nav-link py-2">Home</a>
+        <a href="about.html" class="nav-link py-2 active">About Horizon</a>
+        <a href="tournament.html" class="nav-link py-2">Tournament Info</a>
+        <a href="register.html" class="nav-link py-2">Register</a>
+        <a href="register.html" class="btn btn-primary mt-2">Register Now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="eyebrow">About Horizon</span>
+      <h1 class="mt-5 display" style="font-size: clamp(2.25rem, 4.5vw, 3.75rem); line-height: 1.05; color: var(--hff-navy);">
+        More than a tournament.<br>A weekend on the Northern Beaches.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl mx-auto" style="color: var(--hff-text); max-width: 42rem;">
+        Cromer Park sits at the edge of one of Australia's great coastal stretches. Here's why the Horizon Football Festival is built for a long weekend, not just a tournament.
+      </p>
+    </div>
+  </section>
+
+  <!-- Field Guide stops -->
+  <section class="bg-white">
+    <!-- Stop 1: Cromer Park -->
+    <article class="guide-stop guide-stop-1">
+      <div class="guide-text-col">
+        <div class="stop-num">Stop 01 · The Pitch</div>
+        <h2 class="section-title">Cromer Park, from above.</h2>
+        <div class="divider-line"></div>
+        <p class="text-lg leading-relaxed" style="color: var(--hff-text);">
+          Eight full-size synthetic pitches, 30 minutes from Sydney CBD. Home of Manly United and one of NSW's premier football venues. Floodlights, a clubhouse, ample parking, and the ocean fifteen minutes east.
+        </p>
+      </div>
+      <div class="guide-img-col">
+        <span class="img-caption">Cromer Park · 8 pitches · 30 min from CBD</span>
+      </div>
+    </article>
+
+    <!-- Stop 2: The Game -->
+    <article class="guide-stop guide-stop-2">
+      <div class="guide-text-col">
+        <div class="stop-num">Stop 02 · The Game</div>
+        <h2 class="section-title">Real tournament football. For real young footballers.</h2>
+        <div class="divider-line"></div>
+        <p class="text-lg leading-relaxed" style="color: var(--hff-text);">
+          Group stage on day one, Bronze/Silver/Gold knockouts on day two. Every team plays a minimum of ten matches. Designed by coaches, for coaches — with developmental rhythm built into the schedule, not bolted on.
+        </p>
+      </div>
+      <div class="guide-img-col">
+        <span class="img-caption">7-a-side · 18-minute games · 540+ matches across the festival</span>
+      </div>
+    </article>
+
+    <!-- Stop 3: Manly -->
+    <article class="guide-stop guide-stop-3">
+      <div class="guide-text-col">
+        <div class="stop-num">Stop 03 · The Town</div>
+        <h2 class="section-title">Manly, fifteen minutes east.</h2>
+        <div class="divider-line"></div>
+        <p class="text-lg leading-relaxed" style="color: var(--hff-text);">
+          Between matches, the Northern Beaches are right there. Manly is fifteen minutes from the pitch — the ferry to Circular Quay, the surf clubs, the long beach walk to Shelly. Dee Why, Curl Curl, Freshwater within easy reach.
+        </p>
+      </div>
+      <div class="guide-img-col">
+        <span class="img-caption">Manly Beach · 15 min from Cromer Park</span>
+      </div>
+    </article>
+
+    <!-- Stop 4: The Trip -->
+    <article class="guide-stop guide-stop-4">
+      <div class="guide-text-col">
+        <div class="stop-num">Stop 04 · The Trip</div>
+        <h2 class="section-title">Make a weekend of it.</h2>
+        <div class="divider-line"></div>
+        <p class="text-lg leading-relaxed" style="color: var(--hff-text);">
+          Travelling from interstate or overseas? Cromer Park is 30 minutes from Sydney CBD and surrounded by accommodation, restaurants and beaches. Sydney Harbour and the Manly ferry are part of the offer — football by day, the city by afternoon.
+        </p>
+      </div>
+      <div class="guide-img-col">
+        <span class="img-caption">Manly ferry · Circular Quay → Manly Wharf · 18 min</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 md:py-20" style="background: linear-gradient(135deg, var(--hff-navy) 0%, var(--hff-navy-deep) 100%);">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="display text-white" style="font-size: clamp(1.75rem, 3.5vw, 2.75rem);">Ready to bring your team to Sydney?</h2>
+      <p class="mt-4 text-lg" style="color: #cdd6e8;">Spaces are capped at 18 teams per age group. Register your team today.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="mailto:tournaments@manlyunitedfc.com.au?subject=Horizon%20Football%20Festival%20%E2%80%93%20Team%20Registration" class="btn btn-primary">Register Your Team</a>
+        <a href="tournament.html" class="btn" style="background: rgba(255,255,255,0.1); color: #fff; border: 2px solid rgba(255,255,255,0.3);">Tournament Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid md:grid-cols-3 gap-10">
+        <div>
+          <img src="images/horizon-logo.png" alt="Horizon Football Festival" class="h-16 w-auto mb-4 bg-white rounded-lg p-2" />
+          <p class="text-sm leading-relaxed">
+            A four-day youth football festival hosted by Manly United FC at Cromer Park, 2&ndash;5 October 2026.
+          </p>
+        </div>
+        <div>
+          <div class="footer-heading">Site</div>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Horizon</a></li>
+            <li><a href="tournament.html">Tournament Info</a></li>
+            <li><a href="register.html">Register</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <p class="text-sm">All enquiries:</p>
+          <p class="text-sm mt-1"><a href="mailto:tournaments@manlyunitedfc.com.au?subject=Horizon%20Football%20Festival%20%E2%80%93%20Team%20Enquiry">tournaments@manlyunitedfc.com.au</a></p>
+          <div class="mt-5 flex items-center gap-3">
+            <span class="text-xs uppercase tracking-widest">Hosted by</span>
+            <img src="images/manly-united-logo.png" alt="Manly United FC" class="h-12 w-auto bg-white rounded-md p-1" />
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 pt-6 text-xs flex flex-col md:flex-row justify-between gap-2" style="border-top: 1px solid rgba(255,255,255,0.12); color: #8b94ad;">
+        <div>&copy; 2026 Horizon Football Festival. Hosted by Manly United Football Club.</div>
+        <div>Cromer Park, Northern Beaches, NSW Australia</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

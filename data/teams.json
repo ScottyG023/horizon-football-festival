@@ -1,0 +1,9 @@
+{
+  "_comment": "Class of 2026 team wall. Add registered teams here as they confirm. Each team needs: name, club, division. The page fills remaining cells (up to maxVisible) with placeholder 'open spot' tiles.",
+  "totalSpots": 108,
+  "teams": [
+    { "name": "Manly United", "club": "Manly United", "division": "U10 Mixed" },
+    { "name": "Manly United", "club": "Manly United", "division": "U12 Mixed" },
+    { "name": "Manly United", "club": "Manly United", "division": "U10/U11 Girls" }
+  ]
+}

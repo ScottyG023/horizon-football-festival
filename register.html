@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register Your Team | Horizon Football Festival 2026</title>
+  <meta name="description" content="Register your team for the Horizon Football Festival 2026 at Cromer Park. Spaces are filling fast — claim your spot in the Class of 2026." />
+  <meta name="theme-color" content="#14296b" />
+
+  <link rel="icon" type="image/png" href="images/horizon-logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Header / Nav -->
+  <header class="site-header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-3" aria-label="Horizon Football Festival home">
+          <img src="images/horizon-logo.png" alt="" class="h-10 md:h-12 w-auto" />
+          <div class="hidden sm:block leading-tight">
+            <div class="font-bold text-sm md:text-base" style="color: var(--hff-red); font-family: Montserrat, sans-serif; letter-spacing: 0.04em;">HORIZON</div>
+            <div class="font-semibold text-xs md:text-sm" style="color: var(--hff-navy); letter-spacing: 0.05em;">FOOTBALL FESTIVAL</div>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8" aria-label="Primary">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About Horizon</a>
+          <a href="tournament.html" class="nav-link">Tournament Info</a>
+          <a href="register.html" class="nav-link active">Register</a>
+          <a href="mailto:tournaments@manlyunitedfc.com.au?subject=Horizon%20Football%20Festival%20%E2%80%93%20Team%20Registration" class="btn btn-primary" style="padding: 0.6rem 1.3rem; font-size: 0.88rem;">Email to Register</a>
+        </nav>
+
+        <button id="menuToggle" class="md:hidden p-2 rounded-md" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="color: var(--hff-navy);">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu md:hidden border-t" style="border-color: var(--hff-border); background: #fff;">
+      <div class="px-4 py-3 flex flex-col gap-1">
+        <a href="index.html" class="nav-link py-2">Home</a>
+        <a href="about.html" class="nav-link py-2">About Horizon</a>
+        <a href="tournament.html" class="nav-link py-2">Tournament Info</a>
+        <a href="register.html" class="nav-link py-2 active">Register</a>
+        <a href="mailto:tournaments@manlyunitedfc.com.au?subject=Horizon%20Football%20Festival%20%E2%80%93%20Team%20Registration" class="btn btn-primary mt-2">Email to Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="eyebrow">Class of 2026</span>
+      <h1 class="mt-5 display" style="font-size: clamp(2.25rem, 4.5vw, 3.75rem); line-height: 1.05; color: var(--hff-navy);">
+        Teams already in.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl mx-auto" style="color: var(--hff-text); max-width: 42rem;">
+        The 2026 festival is filling fast. Here's who's confirmed — and where the open spots are.
+      </p>
+    </div>
+  </section>
+
+  <!-- Team wall -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+        <div>
+          <h2 class="section-title" style="font-size: 1.75rem;">The Class of 2026</h2>
+        </div>
+        <div class="team-wall-counter">
+          <strong id="teamCount">0</strong>of 108 spots filled
+        </div>
+      </div>
+
+      <div class="team-wall-grid" id="teamGrid"></div>
+
+      <p class="text-center mt-6 italic" style="color: var(--hff-muted);">
+        Spaces capped at 18 teams per age group. First in, first served.
+      </p>
+    </div>
+  </section>
+
+  <!-- Urgency + email CTA -->
+  <section class="py-20 md:py-24 bg-sky-soft">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="section-eyebrow">Register Today</span>
+      <h2 class="section-title">Teams are in and spaces are filling fast.<br>It's time to claim your spot!</h2>
+      <div class="divider-line mx-auto"></div>
+      <p class="text-lg leading-relaxed mt-4" style="color: var(--hff-text); max-width: 38rem; margin-left: auto; margin-right: auto;">
+        Registration is a quick email to the Manly United tournaments team. We'll come back to you with confirmation, fees, and the full festival information pack.
+      </p>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="mailto:tournaments@manlyunitedfc.com.au?subject=Horizon%20Football%20Festival%20%E2%80%93%20Team%20Registration&body=Hi%20Manly%20United%20Tournaments%20team%2C%0A%0AWe%27d%20like%20to%20register%20our%20team%20for%20the%202026%20Horizon%20Football%20Festival.%0A%0AClub%20%2F%20Academy%3A%20%0ATeam%20Name%3A%20%0AAge%20Group%3A%20%0AContact%20Name%20%26%20Role%3A%20%0AContact%20Email%3A%20%0AContact%20Phone%3A%20%0A%0AThanks%21" class="btn btn-primary" style="font-size: 1rem;">
+          Register today — email tournaments@manlyunitedfc.com.au
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 5l7 7-7 7"></path></svg>
+        </a>
+      </div>
+
+      <p class="text-sm mt-6" style="color: var(--hff-muted);">
+        Tip: the email link above pre-fills a registration template you can fill in.
+      </p>
+    </div>
+  </section>
+
+  <!-- Helpful info -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="section-eyebrow">Before you email</span>
+        <h2 class="section-title">A few things to have handy</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-5">
+        <div class="card-soft">
+          <div class="icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+          </div>
+          <h3 class="font-bold text-lg" style="color: var(--hff-navy); font-family: Montserrat, sans-serif;">Team details</h3>
+          <p class="mt-2" style="color: var(--hff-muted);">Club / academy name, team name, expected squad size.</p>
+        </div>
+        <div class="card-soft">
+          <div class="icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <h3 class="font-bold text-lg" style="color: var(--hff-navy); font-family: Montserrat, sans-serif;">Age group</h3>
+          <p class="mt-2" style="color: var(--hff-muted);">U9, U10, U11, U12 Mixed; U10/U11 or U12/U13 Girls.</p>
+        </div>
+        <div class="card-soft">
+          <div class="icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <h3 class="font-bold text-lg" style="color: var(--hff-navy); font-family: Montserrat, sans-serif;">Contact</h3>
+          <p class="mt-2" style="color: var(--hff-muted);">Head coach or team manager: name, email, phone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid md:grid-cols-3 gap-10">
+        <div>
+          <img src="images/horizon-logo.png" alt="Horizon Football Festival" class="h-16 w-auto mb-4 bg-white rounded-lg p-2" />
+          <p class="text-sm leading-relaxed">
+            A four-day youth football festival hosted by Manly United FC at Cromer Park, 2&ndash;5 October 2026.
+          </p>
+        </div>
+        <div>
+          <div class="footer-heading">Site</div>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Horizon</a></li>
+            <li><a href="tournament.html">Tournament Info</a></li>
+            <li><a href="register.html">Register</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <p class="text-sm">All enquiries:</p>
+          <p class="text-sm mt-1"><a href="mailto:tournaments@manlyunitedfc.com.au?subject=Horizon%20Football%20Festival%20%E2%80%93%20Team%20Enquiry">tournaments@manlyunitedfc.com.au</a></p>
+          <div class="mt-5 flex items-center gap-3">
+            <span class="text-xs uppercase tracking-widest">Hosted by</span>
+            <img src="images/manly-united-logo.png" alt="Manly United FC" class="h-12 w-auto bg-white rounded-md p-1" />
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 pt-6 text-xs flex flex-col md:flex-row justify-between gap-2" style="border-top: 1px solid rgba(255,255,255,0.12); color: #8b94ad;">
+        <div>&copy; 2026 Horizon Football Festival. Hosted by Manly United Football Club.</div>
+        <div>Cromer Park, Northern Beaches, NSW Australia</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/teams.js"></script>
+</body>
+</html>
