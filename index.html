@@ -65,53 +65,34 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero bg-sky-brand">
-    <div class="hero-fallback"></div>
-    <div class="hero-image"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="animate-rise">
-          <span class="eyebrow">2 — 5 October 2026 · Cromer Park, Sydney</span>
-          <h1 class="mt-5 display" style="font-size: clamp(2.5rem, 5.5vw, 4.5rem); line-height: 1.05;">
-            The future<br>of football.
-          </h1>
-          <p class="mt-6 text-lg md:text-xl" style="color: var(--hff-text); max-width: 36rem;">
-            A four-day youth football festival hosted by Manly United FC. Built for players aged U9–U13 who are ready to test themselves in a true tournament environment.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="register.html" class="btn btn-primary">
-              Register Now
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 5l7 7-7 7"></path></svg>
-            </a>
-            <a href="about.html" class="btn btn-ghost">About the Festival</a>
-          </div>
+  <!-- Hero — full-bleed photo + dark scrim + white text (cinematic pattern) -->
+  <section class="hero">
+    <div class="hero-media">
+      <div class="hero-img" aria-hidden="true"></div>
+    </div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
 
-          <div class="mt-10 flex items-center gap-4">
-            <span class="text-sm font-semibold uppercase tracking-wider" style="color: var(--hff-muted);">Hosted by</span>
-            <img src="images/manly-united-logo.png" alt="Manly United Football Club" class="h-12 w-auto" />
-          </div>
+    <div class="hero-content">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span class="eyebrow hero-eyebrow animate-rise">2 — 5 October 2026 · Cromer Park, Sydney</span>
+        <h1 class="display animate-rise delay-1">
+          The future<br><em>of football.</em>
+        </h1>
+        <p class="hero-lede animate-rise delay-2">
+          A four-day youth football festival hosted by Manly United FC. Built for players aged U9–U13 who are ready to test themselves in a true tournament environment.
+        </p>
+        <div class="hero-cta-row animate-rise delay-3">
+          <a href="register.html" class="btn btn-primary">
+            Register Now
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 5l7 7-7 7"></path></svg>
+          </a>
+          <a href="about.html" class="btn btn-ghost-light">About the Festival</a>
         </div>
 
-        <!-- Hero image slot — replace placeholder by saving an image at images/hero-feature.jpg -->
-        <div class="hidden lg:flex justify-center animate-rise delay-2">
-          <div class="hero-image-slot">
-            <!-- The src below falls back gracefully if hero-feature.jpg doesn't exist -->
-            <img src="images/hero-feature.jpg"
-                 alt="Horizon Football Festival"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="hero-image-fallback" style="display: none;">
-              <div>
-                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="color: var(--hff-navy); opacity: 0.4; margin: 0 auto 0.75rem;">
-                  <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                  <circle cx="9" cy="9" r="2"></circle>
-                  <path d="M21 15l-5-5L5 21"></path>
-                </svg>
-                <div style="color: var(--hff-navy); font-weight: 600; font-size: 0.95rem;">Feature image</div>
-                <div style="color: var(--hff-muted); font-size: 0.82rem; margin-top: 0.25rem;">Save as <code>images/hero-feature.jpg</code></div>
-              </div>
-            </div>
-          </div>
+        <div class="hero-hosted animate-rise delay-4">
+          <span class="hero-hosted-label">Hosted by</span>
+          <img src="images/manly-united-logo.png" alt="Manly United Football Club" class="h-12 w-auto" />
         </div>
       </div>
     </div>
@@ -398,8 +379,14 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg>
           </a>
         </div>
-        <div class="lg:col-span-7">
-          <div class="rounded-2xl overflow-hidden shadow-2xl" style="aspect-ratio: 16 / 10;">
+        <div class="lg:col-span-7 space-y-5">
+          <figure class="venue-photo rounded-2xl overflow-hidden shadow-2xl">
+            <img src="images/venue-stand.jpg"
+                 alt="The Lucas Neill Stand lit up at night at Cromer Park, home of Manly United FC"
+                 loading="lazy" />
+            <figcaption>The Lucas Neill Stand, Cromer Park</figcaption>
+          </figure>
+          <div class="rounded-2xl overflow-hidden shadow-2xl" style="aspect-ratio: 16 / 9;">
             <iframe
               src="https://www.google.com/maps?q=Cromer+Park+Sydney+NSW&output=embed"
               width="100%" height="100%" style="border:0;" allowfullscreen=""

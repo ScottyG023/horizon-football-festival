@@ -128,29 +128,140 @@ h1, h2, h3, h4, .display {
   color: #fff;
 }
 
-/* Hero */
+/* Hero — full-bleed photo, dark directional scrim, white text.
+   Pattern ported from the v2 cinematic hero so foreground copy stays
+   legible over photography instead of fighting it. */
 .hero {
   position: relative;
+  min-height: 88vh;
   overflow: hidden;
+  display: flex;
+  align-items: center;
   isolation: isolate;
+  background: var(--hff-navy-deep);
 }
-.hero-image {
+.hero-media {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(180deg, rgba(245, 249, 255, 0.55) 0%, rgba(230, 238, 248, 0.85) 100%),
-    url('../images/hero-cromer.jpg');
+  z-index: 0;
+  overflow: hidden;
+}
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/hero-cromer.jpg');
   background-size: cover;
-  background-position: center 40%;
-  z-index: -1;
+  background-position: center 42%;
+  /* slow drift so the still photo feels alive */
+  animation: hero-pan 26s ease-in-out infinite alternate;
 }
-.hero-fallback {
+@keyframes hero-pan {
+  from { transform: scale(1.05) translateY(0); }
+  to   { transform: scale(1.12) translateY(-1.5%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-img { animation: none; transform: scale(1.05); }
+}
+/* Subtle film grain for editorial texture */
+.hero-grain {
   position: absolute;
   inset: 0;
+  z-index: 1;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+/* The scrim: darkens bottom + left so white text always has backing,
+   while the right side of the photo stays vivid. */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   background:
-    radial-gradient(ellipse at 70% 30%, rgba(200, 16, 46, 0.10) 0%, transparent 45%),
-    linear-gradient(180deg, #cfe0f5 0%, #e6eef8 60%, #f4f7fc 100%);
-  z-index: -2;
+    linear-gradient(180deg, rgba(10,18,51,0.20) 0%, rgba(10,18,51,0.55) 60%, rgba(10,18,51,0.88) 100%),
+    linear-gradient(90deg, rgba(10,18,51,0.78) 0%, rgba(10,18,51,0.30) 50%, rgba(10,18,51,0) 75%);
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: 7rem 0 4.5rem;
+  color: #fff;
+}
+.hero-content .display {
+  font-size: clamp(2.75rem, 6vw, 5.5rem);
+  line-height: 1.02;
+  color: #fff;
+  margin: 1.25rem 0 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  font-weight: 800;
+  text-shadow: 0 2px 24px rgba(10,18,51,0.35);
+}
+.hero-content .display em {
+  font-style: italic;
+  font-weight: 600;
+  text-transform: none;
+  color: #ffd1d8;
+  letter-spacing: -0.005em;
+}
+/* Scoped under .hero-content so it beats the later, equal-specificity
+   .eyebrow rule (source order would otherwise win and wash it out). */
+.hero-content .hero-eyebrow {
+  color: #fff;
+  background: var(--hff-red);
+  box-shadow: 0 4px 16px rgba(10, 18, 51, 0.35);
+}
+.hero-lede {
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  font-weight: 400;
+  color: rgba(255,255,255,0.9);
+  max-width: 38rem;
+  line-height: 1.55;
+  text-shadow: 0 1px 12px rgba(10,18,51,0.4);
+}
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+}
+.hero-hosted {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.75rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  max-width: 22rem;
+}
+.hero-hosted-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255,255,255,0.7);
+}
+.hero-hosted img {
+  background: rgba(255,255,255,0.95);
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.5rem;
+}
+/* Light-on-dark ghost button variant for the hero */
+.btn-ghost-light {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.5);
+  backdrop-filter: blur(6px);
+}
+.btn-ghost-light:hover {
+  background: #fff;
+  color: var(--hff-navy);
+  border-color: #fff;
 }
 
 .eyebrow {
@@ -432,38 +543,31 @@ h1, h2, h3, h4, .display {
 .delay-3 { animation-delay: 240ms; }
 
 /* === Hero image slot (right column of home hero) === */
-.hero-image-slot {
-  width: 100%;
-  max-width: 32rem;
-  aspect-ratio: 4 / 3;
-  border-radius: 1.25rem;
-  overflow: hidden;
-  box-shadow: 0 20px 60px -20px rgba(20, 41, 107, 0.35);
-  background: linear-gradient(135deg, #e6eef8, #f4f7fc);
+/* === Venue photo (Cromer Park grandstand) === */
+.venue-photo {
   position: relative;
+  margin: 0;
 }
-.hero-image-slot img {
+.venue-photo img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  aspect-ratio: 16 / 9;
 }
-.hero-image-fallback {
+.venue-photo figcaption {
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1.5rem;
-  background: repeating-linear-gradient(45deg, #f4f7fc 0 8px, #ecf0f8 8px 16px);
-}
-.hero-image-fallback code {
-  background: rgba(20, 41, 107, 0.06);
-  padding: 0.1rem 0.4rem;
-  border-radius: 4px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.5rem 1.25rem 0.85rem;
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(180deg, transparent 0%, rgba(10,18,51,0.75) 100%);
 }
 
 /* === Destination tiles (home page Destination strip) === */
@@ -661,10 +765,10 @@ h1, h2, h3, h4, .display {
   z-index: 2;
   text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
-.guide-stop-1 .guide-img-col { background-image: linear-gradient(135deg, #4a7bb8 0%, #1a3a8c 50%, #0a1233 100%), url('../images/about-cromer.jpg'); }
-.guide-stop-2 .guide-img-col { background-image: linear-gradient(135deg, #4d7c0f 0%, #166534 60%, #14532d 100%), url('../images/about-pitch.jpg'); }
-.guide-stop-3 .guide-img-col { background-image: linear-gradient(135deg, #fbbf77 0%, #f97316 50%, #c2410c 100%), url('../images/about-manly.jpg'); }
-.guide-stop-4 .guide-img-col { background-image: linear-gradient(135deg, #67c0e8 0%, #2078b6 60%, #14296b 100%), url('../images/about-ferry.jpg'); }
+.guide-stop-1 .guide-img-col { background-image: linear-gradient(135deg, rgba(74,123,184,0.50) 0%, rgba(26,58,140,0.40) 50%, rgba(10,18,51,0.55) 100%), url('../images/about-cromer.jpg'); }
+.guide-stop-2 .guide-img-col { background-image: linear-gradient(135deg, rgba(77,124,15,0.45) 0%, rgba(22,101,52,0.38) 60%, rgba(20,83,45,0.52) 100%), url('../images/about-pitch.jpg'); }
+.guide-stop-3 .guide-img-col { background-image: linear-gradient(135deg, rgba(251,191,119,0.42) 0%, rgba(249,115,22,0.38) 50%, rgba(194,65,12,0.52) 100%), url('../images/about-manly.jpg'); }
+.guide-stop-4 .guide-img-col { background-image: linear-gradient(135deg, rgba(103,192,232,0.42) 0%, rgba(32,120,182,0.38) 60%, rgba(20,41,107,0.55) 100%), url('../images/about-ferry.jpg'); }
 
 .stop-num {
   font-family: 'Montserrat', sans-serif;
