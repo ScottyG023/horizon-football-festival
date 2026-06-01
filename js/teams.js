@@ -8,9 +8,10 @@
 
   let data;
   try {
-    // Cache-busting version: BUMP this each time data/teams.json changes
-    // (e.g. when a new club registers) so visitors fetch the fresh wall.
-    const res = await fetch('data/teams.json?v=1');
+    // Always fetch the freshest team data. teams.json is tiny and changes
+    // every time a club registers, so we bust the cache on every load — no
+    // manual version bump needed when you edit teams.json.
+    const res = await fetch('data/teams.json?t=' + Date.now(), { cache: 'no-store' });
     data = await res.json();
   } catch (err) {
     console.error('Could not load teams.json:', err);
