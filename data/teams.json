@@ -1,9 +1,9 @@
 {
-  "_comment": "Class of 2026 team wall. Add registered teams here as they confirm. Each team needs: name, club, division. The page fills remaining cells (up to maxVisible) with placeholder 'open spot' tiles.",
+  "_comment": "Class of 2026 team wall, rendered left-to-right in registration order. Add registered teams here as they confirm — append to the end so order reflects registration sequence. Each team needs: name, club, division. Clubs supply a crest at registration; set 'crest' to its image path (e.g. images/clubs/<club>.png). If 'crest' is omitted, the cell falls back to the club's initials. The page fills remaining cells (up to maxVisible) with placeholder 'open spot' tiles.",
   "totalSpots": 108,
   "teams": [
-    { "name": "Manly United", "club": "Manly United", "division": "U10 Mixed" },
-    { "name": "Manly United", "club": "Manly United", "division": "U12 Mixed" },
-    { "name": "Manly United", "club": "Manly United", "division": "U10/U11 Girls" }
+    { "name": "Manly United", "club": "Manly United", "division": "U10 Mixed", "crest": "images/manly-united-logo.png" },
+    { "name": "Manly United", "club": "Manly United", "division": "U12 Mixed", "crest": "images/manly-united-logo.png" },
+    { "name": "Manly United", "club": "Manly United", "division": "U10/U11 Girls", "crest": "images/manly-united-logo.png" }
   ]
 }

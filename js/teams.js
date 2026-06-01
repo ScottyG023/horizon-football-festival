@@ -32,11 +32,16 @@
   }
   grid.appendChild(frag);
 
-  function makeTeamCell({ name, club, division }) {
+  function makeTeamCell({ name, club, division, crest }) {
     const cell = document.createElement('div');
     cell.className = 'team-wall-cell';
+    // Clubs supply a crest at registration. When present, show the badge image;
+    // otherwise fall back to the club's initials so the cell still reads cleanly.
+    const badge = crest
+      ? `<div class="crest has-img"><img src="${escapeHtml(crest)}" alt="${escapeHtml(club || name)} crest" loading="lazy" /></div>`
+      : `<div class="crest" aria-hidden="true">${initials(club || name)}</div>`;
     cell.innerHTML = `
-      <div class="crest" aria-hidden="true">${initials(club || name)}</div>
+      ${badge}
       <div class="team-name">${escapeHtml(name)}</div>
       <div class="team-div">${escapeHtml(division || '')}</div>
     `;
