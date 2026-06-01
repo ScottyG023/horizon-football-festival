@@ -8,7 +8,9 @@
 
   let data;
   try {
-    const res = await fetch('data/teams.json');
+    // Cache-busting version: BUMP this each time data/teams.json changes
+    // (e.g. when a new club registers) so visitors fetch the fresh wall.
+    const res = await fetch('data/teams.json?v=1');
     data = await res.json();
   } catch (err) {
     console.error('Could not load teams.json:', err);
