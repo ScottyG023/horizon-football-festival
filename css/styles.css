@@ -118,6 +118,33 @@ h1, h2, h3, h4, .display {
   background: var(--hff-navy-deep);
   transform: translateY(-1px);
 }
+/* Locked state for the T&Cs-gated Register button */
+.btn.is-locked {
+  background: var(--hff-border);
+  color: var(--hff-muted);
+  box-shadow: none;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.btn.is-locked:hover { transform: none; box-shadow: none; }
+.terms-progress {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--hff-muted);
+}
+.terms-progress .dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--hff-border);
+  transition: background 200ms ease;
+}
+.terms-progress .dot.done { background: var(--hff-red); }
 .btn-ghost {
   background: transparent;
   color: var(--hff-navy);

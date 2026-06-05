@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/styles.css?v=1" />
+  <link rel="stylesheet" href="css/styles.css?v=2" />
 </head>
 <body>
 
@@ -35,7 +35,7 @@
           <a href="about.html" class="nav-link">About Horizon</a>
           <a href="tournament.html" class="nav-link">Tournament Info</a>
           <a href="register.html" class="nav-link active">Register</a>
-          <a href="https://forms.office.com/pages/responsepage.aspx?id=vXBxCNi3mU2b18mYRa23vdDFh9VKcaFGn5F3PMiw_VpUM0JTNkZZRkIxQk9CS0cyM0s2WEZQRk4zVy4u&route=shorturl" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.6rem 1.3rem; font-size: 0.88rem;">Register Now</a>
+          <a href="#register-gate" class="btn btn-primary" style="padding: 0.6rem 1.3rem; font-size: 0.88rem;">Register Now</a>
         </nav>
 
         <button id="menuToggle" class="md:hidden p-2 rounded-md" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -54,7 +54,7 @@
         <a href="about.html" class="nav-link py-2">About Horizon</a>
         <a href="tournament.html" class="nav-link py-2">Tournament Info</a>
         <a href="register.html" class="nav-link py-2 active">Register</a>
-        <a href="https://forms.office.com/pages/responsepage.aspx?id=vXBxCNi3mU2b18mYRa23vdDFh9VKcaFGn5F3PMiw_VpUM0JTNkZZRkIxQk9CS0cyM0s2WEZQRk4zVy4u&route=shorturl" target="_blank" rel="noopener" class="btn btn-primary mt-2">Register Now</a>
+        <a href="#register-gate" class="btn btn-primary mt-2">Register Now</a>
       </div>
     </div>
   </header>
@@ -103,9 +103,9 @@
       </p>
 
       <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a href="https://forms.office.com/pages/responsepage.aspx?id=vXBxCNi3mU2b18mYRa23vdDFh9VKcaFGn5F3PMiw_VpUM0JTNkZZRkIxQk9CS0cyM0s2WEZQRk4zVy4u&route=shorturl" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 1rem;">
-          Register your team
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 5l7 7-7 7"></path></svg>
+        <a href="#terms" class="btn btn-primary" style="font-size: 1rem;">
+          Review the terms to register
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="M19 12l-7 7-7-7"></path></svg>
         </a>
       </div>
 
@@ -266,6 +266,32 @@
           </ul>
         </details>
       </div>
+
+      <!-- Gated registration: unlocks once all sections are opened -->
+      <div id="register-gate" class="mt-10 text-center">
+        <div id="termsProgress" class="terms-progress mb-5" aria-live="polite">
+          <span id="termsDots" aria-hidden="true">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          </span>
+          <span id="termsProgressText">Read 0 of 9 sections to register</span>
+        </div>
+
+        <a id="registerCta"
+           href="https://forms.office.com/pages/responsepage.aspx?id=vXBxCNi3mU2b18mYRa23vdDFh9VKcaFGn5F3PMiw_VpUM0JTNkZZRkIxQk9CS0cyM0s2WEZQRk4zVy4u&route=shorturl"
+           target="_blank" rel="noopener"
+           class="btn btn-primary is-locked"
+           aria-disabled="true"
+           style="font-size: 1rem;">
+          <span id="registerCtaLabel">Open each section to continue</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 5l7 7-7 7"></path></svg>
+        </a>
+
+        <p class="text-sm mt-5" style="color: var(--hff-muted); max-width: 34rem; margin-left: auto; margin-right: auto;">
+          Open each of the nine sections above to read the full Terms &amp; Conditions. The registration form will then open. Submitting the form records your acceptance of these terms.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -305,7 +331,8 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=1"></script>
+  <script src="js/main.js?v=2"></script>
   <script src="js/teams.js?v=1"></script>
+  <script src="js/terms-gate.js?v=1"></script>
 </body>
 </html>
