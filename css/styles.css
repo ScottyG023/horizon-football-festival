@@ -127,24 +127,24 @@ h1, h2, h3, h4, .display {
   pointer-events: none;
 }
 .btn.is-locked:hover { transform: none; box-shadow: none; }
-.terms-progress {
+/* Acceptance checkbox that gates the Register button */
+.terms-accept {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.8rem;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  cursor: pointer;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--hff-muted);
+  color: var(--hff-navy);
+  text-align: left;
 }
-.terms-progress .dot {
-  width: 9px; height: 9px;
-  border-radius: 50%;
-  background: var(--hff-border);
-  transition: background 200ms ease;
+.terms-accept input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  accent-color: var(--hff-red);
+  cursor: pointer;
 }
-.terms-progress .dot.done { background: var(--hff-red); }
 .btn-ghost {
   background: transparent;
   color: var(--hff-navy);
