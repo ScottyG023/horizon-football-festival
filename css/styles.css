@@ -1,6 +1,24 @@
 /* Horizon Football Festival — custom styles
    Brand colours sampled from the official logo & brochure */
 
+/* Skip-to-content link (accessibility) — visible only on keyboard focus */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--hff-navy);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 8px 0;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 0;
+}
+
 :root {
   --hff-navy: #14296b;
   --hff-navy-deep: #0f1f4f;

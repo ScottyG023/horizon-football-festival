@@ -1,0 +1,53 @@
+# Horizon Football Festival — server config (Apache / VentraIP shared hosting)
+
+# ----------------------------------------------------------------------
+# Security headers
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+  # Force HTTPS for a year, including subdomains
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  # Stop the site being framed (clickjacking)
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Don't let browsers MIME-sniff
+  Header always set X-Content-Type-Options "nosniff"
+  # Limit referrer leakage
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Lock down powerful APIs we don't use
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+  # Content Security Policy — allows the Tailwind CDN + Google Fonts the site uses,
+  # plus the Microsoft Forms registration link. Tightened to known sources.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self' https://forms.office.com mailto:; frame-ancestors 'self'; base-uri 'self'"
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Caching — static assets cached long, HTML revalidated
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # HTML always revalidated so content edits show immediately
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  # JSON data (team data) — always fresh
+  <FilesMatch "\.json$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Compression
+# ----------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
+</IfModule>
