@@ -196,7 +196,10 @@ h1, h2, h3, h4, .display {
   inset: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../images/hero-cromer.jpg');
+  background-image: image-set(url('../images/hero-cromer.webp') type('image/webp'), url('../images/hero-cromer.jpg') type('image/jpeg'));
+  background-image: url('../images/hero-cromer.jpg'); /* fallback for browsers without image-set */
+  background-image: -webkit-image-set(url('../images/hero-cromer.webp') type('image/webp'), url('../images/hero-cromer.jpg') type('image/jpeg'));
+  background-image: image-set(url('../images/hero-cromer.webp') type('image/webp'), url('../images/hero-cromer.jpg') type('image/jpeg'));
   background-size: cover;
   background-position: center 42%;
   /* slow drift so the still photo feels alive */
@@ -635,6 +638,10 @@ h1, h2, h3, h4, .display {
     linear-gradient(180deg, rgba(20,41,107,0) 30%, rgba(20,41,107,0.85) 100%),
     url('../images/destination-cromer.jpg'),
     linear-gradient(135deg, #4a7bb8 0%, #1a3a8c 50%, #0a1233 100%);
+  background-image:
+    linear-gradient(180deg, rgba(20,41,107,0) 30%, rgba(20,41,107,0.85) 100%),
+    image-set(url('../images/destination-cromer.webp') type('image/webp'), url('../images/destination-cromer.jpg') type('image/jpeg')),
+    linear-gradient(135deg, #4a7bb8 0%, #1a3a8c 50%, #0a1233 100%);
 }
 .destination-tile-half {
   aspect-ratio: 4 / 3;
@@ -646,11 +653,19 @@ h1, h2, h3, h4, .display {
     linear-gradient(180deg, rgba(20,41,107,0) 30%, rgba(20,41,107,0.85) 100%),
     url('../images/destination-manly.jpg'),
     linear-gradient(135deg, #fbbf77 0%, #f97316 50%, #c2410c 100%);
+  background-image:
+    linear-gradient(180deg, rgba(20,41,107,0) 30%, rgba(20,41,107,0.85) 100%),
+    image-set(url('../images/destination-manly.webp') type('image/webp'), url('../images/destination-manly.jpg') type('image/jpeg')),
+    linear-gradient(135deg, #fbbf77 0%, #f97316 50%, #c2410c 100%);
 }
 .destination-ferry {
   background-image:
     linear-gradient(180deg, rgba(20,41,107,0) 30%, rgba(20,41,107,0.85) 100%),
     url('../images/destination-ferry.jpg'),
+    linear-gradient(135deg, #67c0e8 0%, #2078b6 60%, #14296b 100%);
+  background-image:
+    linear-gradient(180deg, rgba(20,41,107,0) 30%, rgba(20,41,107,0.85) 100%),
+    image-set(url('../images/destination-ferry.webp') type('image/webp'), url('../images/destination-ferry.jpg') type('image/jpeg')),
     linear-gradient(135deg, #67c0e8 0%, #2078b6 60%, #14296b 100%);
 }
 .destination-tile-overlay {
@@ -821,9 +836,13 @@ h1, h2, h3, h4, .display {
   text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 .guide-stop-1 .guide-img-col { background-image: linear-gradient(135deg, rgba(74,123,184,0.50) 0%, rgba(26,58,140,0.40) 50%, rgba(10,18,51,0.55) 100%), url('../images/about-cromer.jpg'); }
+.guide-stop-1 .guide-img-col { background-image: linear-gradient(135deg, rgba(74,123,184,0.50) 0%, rgba(26,58,140,0.40) 50%, rgba(10,18,51,0.55) 100%), image-set(url('../images/about-cromer.webp') type('image/webp'), url('../images/about-cromer.jpg') type('image/jpeg')); }
 .guide-stop-2 .guide-img-col { background-image: linear-gradient(135deg, rgba(77,124,15,0.45) 0%, rgba(22,101,52,0.38) 60%, rgba(20,83,45,0.52) 100%), url('../images/about-pitch.jpg'); }
+.guide-stop-2 .guide-img-col { background-image: linear-gradient(135deg, rgba(77,124,15,0.45) 0%, rgba(22,101,52,0.38) 60%, rgba(20,83,45,0.52) 100%), image-set(url('../images/about-pitch.webp') type('image/webp'), url('../images/about-pitch.jpg') type('image/jpeg')); }
 .guide-stop-3 .guide-img-col { background-image: linear-gradient(135deg, rgba(251,191,119,0.42) 0%, rgba(249,115,22,0.38) 50%, rgba(194,65,12,0.52) 100%), url('../images/about-manly.jpg'); }
+.guide-stop-3 .guide-img-col { background-image: linear-gradient(135deg, rgba(251,191,119,0.42) 0%, rgba(249,115,22,0.38) 50%, rgba(194,65,12,0.52) 100%), image-set(url('../images/about-manly.webp') type('image/webp'), url('../images/about-manly.jpg') type('image/jpeg')); }
 .guide-stop-4 .guide-img-col { background-image: linear-gradient(135deg, rgba(103,192,232,0.42) 0%, rgba(32,120,182,0.38) 60%, rgba(20,41,107,0.55) 100%), url('../images/about-ferry.jpg'); }
+.guide-stop-4 .guide-img-col { background-image: linear-gradient(135deg, rgba(103,192,232,0.42) 0%, rgba(32,120,182,0.38) 60%, rgba(20,41,107,0.55) 100%), image-set(url('../images/about-ferry.webp') type('image/webp'), url('../images/about-ferry.jpg') type('image/jpeg')); }
 
 .stop-num {
   font-family: 'Montserrat', sans-serif;
