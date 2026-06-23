@@ -15,8 +15,9 @@
   # Lock down powerful APIs we don't use
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
   # Content Security Policy — allows the Tailwind CDN + Google Fonts the site uses,
-  # plus the Microsoft Forms registration link. Tightened to known sources.
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self' https://forms.office.com mailto:; frame-ancestors 'self'; base-uri 'self'"
+  # the Microsoft Forms registration link, and the embedded Google Map of the
+  # venue (frame-src). Tightened to known sources.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src https://www.google.com https://maps.google.com; form-action 'self' https://forms.office.com mailto:; frame-ancestors 'self'; base-uri 'self'"
 </IfModule>
 
 # ----------------------------------------------------------------------
